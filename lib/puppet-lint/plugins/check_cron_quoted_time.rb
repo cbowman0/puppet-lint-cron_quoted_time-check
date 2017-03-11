@@ -2,13 +2,14 @@
 # parameter and if found, record a warning if the value of that parameter is
 # not a quoted string.
 PuppetLint.new_check(:unquoted_cron_time) do
+  CRON_TOKEN_TYPES = Set[:NAME, :NUMBER]
 
   def check
     resource_indexes.each do |resource|
       if resource[:type].value == "cron"
         resource[:param_tokens].select { |param_token|
-          ['hour', 'minute'].include?(param_token.value) &&
-            TOKEN_TYPES.include?(param_token.next_code_token.next_code_token.type)
+          ['hour', 'minute', 'month', 'monthday', 'weekday'].include?(param_token.value) &&
+            CRON_TOKEN_TYPES.include?(param_token.next_code_token.next_code_token.type)
         }.each do |param_token|
           value_token = param_token.next_code_token.next_code_token
           notify :warning, {
