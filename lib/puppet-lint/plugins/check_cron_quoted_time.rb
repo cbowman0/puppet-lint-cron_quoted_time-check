@@ -1,7 +1,7 @@
-# Public: Check the tokens of each File resource instance for a mode
-# parameter and if found, record a warning if the value of that parameter is
+# Public: Check the tokens of each Cron resource instance for the time
+# parameters and if found, record a warning if the value of that parameter is
 # not a quoted string.
-PuppetLint.new_check(:unquoted_cron_time) do
+PuppetLint.new_check(:cron_quoted_time) do
   CRON_TOKEN_TYPES = Set[:NUMBER]
 
   def check

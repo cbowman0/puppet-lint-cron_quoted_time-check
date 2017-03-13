@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'unquoted_cron_time' do
+describe 'cron_quoted_time' do
   let(:msg) { 'unquoted cron time' }
 
   context 'with fix disabled' do
