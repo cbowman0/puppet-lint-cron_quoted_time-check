@@ -1,6 +1,6 @@
 Gem::Specification.new do |spec|
   spec.name        = 'puppet-lint-cron_quoted_time-check'
-  spec.version     = '1.0.0'
+  spec.version     = '0.9.0'
   spec.homepage    = 'https://github.com/cbowman0/puppet-lint-cron_quoted_time-check'
   spec.license     = 'MIT'
   spec.author      = 'Christopher Bowman'
